@@ -1,39 +1,34 @@
 # Event Management
 
-O event management é uma aplicação de **gestão de participantes em eventos presenciais**. 
+Event management is an application for **managing participants in in-person events**.
 
-A ferramenta permite que o organizador cadastre um evento e abra uma página pública de inscrição.
-
-
-
-## Requisitos
-
-### Requisitos funcionais
-
-- [x] O organizador deve poder cadastrar um novo evento;
-- [x] O organizador deve poder visualizar dados de um evento;
-- [x] O organizador deve poser visualizar a lista de participantes; 
-- [x] O participante deve poder se inscrever em um evento;
-- [x] O participante deve poder visualizar seu crachá de inscrição;
-- [x] O participante deve poder realizar check-in no evento;
-
-### Regras de negócio
-
-- [x] O participante só pode se inscrever em um evento uma única vez;
-- [x] O participante só pode se inscrever em eventos com vagas disponíveis;
-- [x] O participante só pode realizar check-in em um evento uma única vez;
-
-### Requisitos não-funcionais
-
-- [x] O check-in no evento será realizado através de um QRCode;
+The tool allows the organizer to register an event and open a public registration page.
 
 
-## Banco de dados
+## Requirements
 
-Nessa aplicação foi utilizado banco de dados relacional (SQL).
+### Functional requirements
+
+- [x] The organizer must be able to register a new event;
+- [x] The organizer must be able to view event data;
+- [x] The organizer must be able to view the list of participants;
+- [x] The participant must be able to register for an event;
+- [x] The participant must be able to view their registration badge;
+- [x] The participant must be able to check-in at the event;
+
+### Business rules
+
+- [x] The participant can only register for an event once;
+- [x] Participants can only register for events with available places;
+- [x] The participant can only check-in to an event once;
 
 
-### Estrutura do banco (SQL)
+## Database
+
+In this application, a relational database (SQLite) was used.
+
+
+### Database structure (SQL)
 
 ```sql
 -- CreateTable
@@ -72,20 +67,19 @@ CREATE UNIQUE INDEX "attendees_event_id_email_key" ON "attendees"("event_id", "e
 -- CreateIndex
 CREATE UNIQUE INDEX "check_ins_attendeeId_key" ON "check_ins"("attendeeId");
 ```
+## Running
 
-## Executando
-
-Após clonar o repositório da UI, acesse a pasta do projeto e execute os comandos abaixo:
+After cloning the UI repository, access the project folder and run the commands below:
 
 ```sh
 npm install
 npm run dev
 ```
 
-Acesse http://localhost:5173 para visualizar a aplicação.
+Visit http://localhost:5173 to view the application.
 
 
-Após clonar o repositório da API, acesse a pasta do projeto e execute os comandos abaixo:
+After cloning the API repository, access the project folder and execute the commands below:
 
 ```sh
 npm install
@@ -93,4 +87,4 @@ npm run db:migrate
 npm run dev
 ```
 
-Acesse http://localhost:3333 para visualizar a api.
+Visit http://localhost:3333 to view the api.
